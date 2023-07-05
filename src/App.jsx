@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 //forms
 import BasicForm from "./components/basic-form/BasicForm";
-import AdvancedForm from "./components/advanced-form/AdvancedForm";
-import Checkboxes from "./components/checkboxes/Checkboxes";
+import Midlevel from "./components/advanced-form/Midlevel";
+import Advanced from "./components/checkboxes/Advanced";
 
 function App() {
     const [view, setView] = useState("BASIC");
@@ -17,26 +17,26 @@ function App() {
                     Basic
                 </h3>
                 <h3
+                    className={view === "MID_LEVEL" ? "active" : ""}
+                    onClick={() => setView("MID_LEVEL")}
+                >
+                    Mid Level
+                </h3>
+                <h3
                     className={view === "ADVANCED" ? "active" : ""}
                     onClick={() => setView("ADVANCED")}
                 >
                     Advanced
-                </h3>
-                <h3
-                    className={view === "CHECKBOX" ? "active" : ""}
-                    onClick={() => setView("CHECKBOX")}
-                >
-                    Checkboxes
                 </h3>
             </div>
 
             <div className="form-container">
                 {view === "BASIC" ? (
                     <BasicForm />
-                ) : view === "ADVANCED" ? (
-                    <AdvancedForm />
+                ) : view === "MID_LEVEL" ? (
+                    <Midlevel />
                 ) : (
-                    <Checkboxes />
+                    <Advanced />
                 )}
             </div>
         </div>

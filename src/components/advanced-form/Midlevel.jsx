@@ -9,7 +9,7 @@ import CustomInput from "../CustomInput";
 import CustomSelect from "../CustomSelect";
 import CustomCheckbox from "../CustomCheckbox";
 
-function AdvancedForm() {
+function Midlevel() {
     const initialValues = {
         username: "",
         jobType: "",
@@ -66,4 +66,4 @@ function AdvancedForm() {
     );
 }
 
-export default AdvancedForm;
+export default Midlevel;

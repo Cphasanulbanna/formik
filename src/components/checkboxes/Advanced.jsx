@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import { checkboxSchcema } from "../schemas";
 
-function Checkboxes() {
+function Advanced() {
     const onSubmit = async (value, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm();
@@ -115,4 +115,4 @@ function Checkboxes() {
     );
 }
 
-export default Checkboxes;
+export default Advanced;
