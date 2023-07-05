@@ -16,3 +16,12 @@ export const basicSchema = yup.object().shape({
         .oneOf([yup.ref("password"), null], "Passwords must match")
         .required("Paassword is required"),
 });
+
+export const adVancedSchema = yup.object().shape({
+    username: yup.string().min(3, "Username must be atleast 3 character").required("required"),
+    jobType: yup
+        .string()
+        .oneOf(["designer", "developer", "manager", "other"], "Invalid job type")
+        .required("required"),
+    acceptedTos: yup.boolean().oneOf([true], "Please accept the terms and service"),
+});
