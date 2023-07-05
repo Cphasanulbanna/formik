@@ -10,13 +10,13 @@ function App() {
         <div className="app">
             <div className="options">
                 <h3
-                    className={view === "BASIC" && "active"}
+                    className={view === "BASIC" ? "active" : ""}
                     onClick={() => setView("BASIC")}
                 >
                     Basic
                 </h3>
                 <h3
-                    className={view === "ADVANCED" && "active"}
+                    className={view === "ADVANCED" ? "active" : ""}
                     onClick={() => setView("ADVANCED")}
                 >
                     Advanced

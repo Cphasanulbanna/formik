@@ -1,14 +1,19 @@
 import React from "react";
 
 import "./basic-form.scss";
+
 import { useFormik } from "formik";
 
 function BasicForm() {
-    const formik = useFormik({
+    const { values, handleChange, handleBlur } = useFormik({
         initialValues: {
             email: "",
+            age: "",
+            password: "",
+            confirmPassword: "",
         },
     });
+
     return (
         <form autoComplete="off">
             <label htmlFor="email">Email</label>
@@ -16,9 +21,9 @@ function BasicForm() {
                 type="email"
                 placeholder="Enter your email"
                 id="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
 
             <label htmlFor="age">Age</label>
@@ -26,9 +31,9 @@ function BasicForm() {
                 type="number"
                 placeholder="Enter your age"
                 id="age"
-                value={formik.values.age}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                value={values.age}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
 
             <label htmlFor="password">Password</label>
@@ -36,9 +41,9 @@ function BasicForm() {
                 type="password"
                 placeholder="Enter your password"
                 id="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
 
             <label htmlFor="confirmPassword">Confirm Password</label>
@@ -46,9 +51,9 @@ function BasicForm() {
                 type="password"
                 placeholder="Confirm password"
                 id="confirmPassword"
-                value={formik.values.confirmPassword}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                value={values.confirmPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
             <button
                 className="button"
