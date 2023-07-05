@@ -2,9 +2,9 @@ import React from "react";
 
 import "./advanced-form.scss";
 
-import { Field, Form, Formik, useFormik } from "formik";
+import { Form, Formik } from "formik";
 
-import { adVancedSchema, basicSchema } from "../schemas";
+import { adVancedSchema } from "../schemas";
 import CustomInput from "../CustomInput";
 import CustomSelect from "../CustomSelect";
 import CustomCheckbox from "../CustomCheckbox";

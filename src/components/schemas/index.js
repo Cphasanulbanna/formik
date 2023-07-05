@@ -25,3 +25,21 @@ export const adVancedSchema = yup.object().shape({
         .required("required"),
     acceptedTos: yup.boolean().oneOf([true], "Please accept the terms and service"),
 });
+
+export const checkboxSchcema = yup.object().shape({
+    place: yup.string().required("place is required"),
+    skills: yup
+        .array()
+        .required("At least one skill must be selected")
+        .min(1, "At least one skill must be selected"),
+    // age: yup.number().positive().integer().required("Age is required"),
+    // password: yup
+    //     .string()
+    //     .min(5)
+    //     .matches(passwordRules, { message: "Please enter a strong password" })
+    //     .required("Paassword is required"),
+    // confirmPassword: yup
+    //     .string()
+    //     .oneOf([yup.ref("password"), null], "Passwords must match")
+    //     .required("Paassword is required"),
+});
