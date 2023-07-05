@@ -18,6 +18,7 @@ function AdvancedForm() {
 
     const onSubmit = async (values, actions) => {
         await new Promise((ressolve) => setTimeout(ressolve, 1000));
+        console.log("submitted");
         actions.resetForm();
     };
     return (
@@ -26,7 +27,7 @@ function AdvancedForm() {
             validationSchema={adVancedSchema}
             onSubmit={onSubmit}
         >
-            {(props) => (
+            {({ errors, ...props }) => (
                 <Form>
                     <CustomInput
                         label="Username"
@@ -34,7 +35,6 @@ function AdvancedForm() {
                         type="text"
                         placeholder="Enter your username"
                     />
-                    {console.log(props, "props")}
 
                     <CustomSelect
                         label="Job Type"
@@ -54,7 +54,7 @@ function AdvancedForm() {
                     />
 
                     <button
-                        // disabled={isSubmitting || Object.keys(errors).length > 0}
+                        disabled={props.isSubmitting || Object.keys(errors).length > 0}
                         className="button"
                         type="submit"
                     >
