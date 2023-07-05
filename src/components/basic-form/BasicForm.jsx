@@ -4,18 +4,31 @@ import "./basic-form.scss";
 
 import { useFormik } from "formik";
 
+import { basicSchema } from "../schemas";
+
 function BasicForm() {
-    const { values, handleChange, handleBlur } = useFormik({
+    const onSubmit = () => {
+        console.log("form submitted");
+    };
+
+    const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: {
             email: "",
             age: "",
             password: "",
             confirmPassword: "",
         },
+        validationSchema: basicSchema,
+        onSubmit,
     });
 
+    console.log(errors, "errors");
+
     return (
-        <form autoComplete="off">
+        <form
+            onSubmit={handleSubmit}
+            autoComplete="off"
+        >
             <label htmlFor="email">Email</label>
             <input
                 type="email"
@@ -24,7 +37,9 @@ function BasicForm() {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                className={errors.email && touched.email ? "error" : ""}
             />
+            {errors.email && touched.email && <p className="error">{errors.email}</p>}
 
             <label htmlFor="age">Age</label>
             <input
@@ -34,7 +49,9 @@ function BasicForm() {
                 value={values.age}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                className={errors.age && touched.age ? "error" : ""}
             />
+            {errors.age && touched.age && <p className="error">{errors.age}</p>}
 
             <label htmlFor="password">Password</label>
             <input
@@ -44,7 +61,9 @@ function BasicForm() {
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                className={errors.password && touched.password ? "error" : ""}
             />
+            {errors.password && touched.password && <p className="error">{errors.password}</p>}
 
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
@@ -54,7 +73,11 @@ function BasicForm() {
                 value={values.confirmPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                className={errors.confirmPassword && touched.confirmPassword ? "error" : ""}
             />
+            {errors.confirmPassword && touched.confirmPassword && (
+                <p className="error">{errors.confirmPassword}</p>
+            )}
             <button
                 className="button"
                 type="submit"
