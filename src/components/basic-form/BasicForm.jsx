@@ -29,6 +29,7 @@ function BasicForm() {
 
     return (
         <form
+            id="form1"
             onSubmit={handleSubmit}
             autoComplete="off"
         >

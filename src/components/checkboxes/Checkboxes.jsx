@@ -28,7 +28,10 @@ function Checkboxes() {
             onSubmit={onSubmit}
         >
             {({ errors, values, touched, isSubmitting, setFieldValue, ...props }) => (
-                <Form autoComplete="off">
+                <Form
+                    autoComplete="off"
+                    style={{ background: "rgb(4, 51, 41)" }}
+                >
                     {console.log(values, "values")}
                     <label htmlFor="place">place</label>
                     <Field

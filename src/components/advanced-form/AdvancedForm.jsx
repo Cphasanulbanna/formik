@@ -28,7 +28,7 @@ function AdvancedForm() {
             onSubmit={onSubmit}
         >
             {({ errors, ...props }) => (
-                <Form>
+                <Form style={{ background: "#111" }}>
                     <CustomInput
                         label="Username"
                         name="username"
