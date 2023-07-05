@@ -119,14 +119,16 @@ input.error {
     outline: none;
 }
 
-.skills {
+.skills,
+.genders {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
 }
 
-.skills input {
+.skills input,
+.genders input {
     width: 20px;
     margin: 0;
 }
