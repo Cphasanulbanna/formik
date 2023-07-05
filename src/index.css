@@ -93,10 +93,20 @@ input.error {
 }
 
 .error {
-    color: rgb(212, 43, 43);
-    font-size: 12px;
 }
 p.error {
     margin-top: -20px;
     margin-bottom: 20px;
+    color: rgb(212, 43, 43);
+    font-size: 12px;
+}
+
+button:disabled {
+    opacity: 0.35;
+    background-color: #676767;
+    color: #fff;
+}
+button:disabled:hover {
+    opacity: 0.35;
+    cursor: not-allowed;
 }

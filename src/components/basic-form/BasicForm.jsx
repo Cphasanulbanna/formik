@@ -7,20 +7,23 @@ import { useFormik } from "formik";
 import { basicSchema } from "../schemas";
 
 function BasicForm() {
-    const onSubmit = () => {
+    const onSubmit = async (value, actions) => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        actions.resetForm();
         console.log("form submitted");
     };
 
-    const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
-        initialValues: {
-            email: "",
-            age: "",
-            password: "",
-            confirmPassword: "",
-        },
-        validationSchema: basicSchema,
-        onSubmit,
-    });
+    const { values, errors, touched, handleChange, isSubmitting, handleBlur, handleSubmit } =
+        useFormik({
+            initialValues: {
+                email: "",
+                age: "",
+                password: "",
+                confirmPassword: "",
+            },
+            validationSchema: basicSchema,
+            onSubmit,
+        });
 
     console.log(errors, "errors");
 
@@ -79,6 +82,7 @@ function BasicForm() {
                 <p className="error">{errors.confirmPassword}</p>
             )}
             <button
+                disabled={isSubmitting}
                 className="button"
                 type="submit"
             >
