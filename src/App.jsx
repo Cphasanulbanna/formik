@@ -14,7 +14,7 @@ function App() {
                     className={view === "BASIC" ? "active" : ""}
                     onClick={() => setView("BASIC")}
                 >
-                    Basic
+                    First
                 </h3>
                 <h3
                     className={view === "MID_LEVEL" ? "active" : ""}
