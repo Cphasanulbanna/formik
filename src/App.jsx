@@ -14,7 +14,7 @@ function App() {
                     className={view === "BASIC" ? "active" : ""}
                     onClick={() => setView("BASIC")}
                 >
-                    First  benna.com
+                    Basic
                 </h3>
                 <h3
                     className={view === "MID_LEVEL" ? "active" : ""}
